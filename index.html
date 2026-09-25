@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>睚宁公司 - 专业3D打印解决方案服务商</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "微软雅黑", sans-serif; color: #333; background: #f9fafb; line-height: 1.6; }
+        html { scroll-behavior: smooth; }
+
+        /* 导航栏 */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 999;
+        }
+        .nav-box {
+            max-width: 1200px; margin: 0 auto; padding: 12px 20px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo-box { display: flex; align-items: center; gap: 8px; }
+        .logo-box img { height: 40px; width: 40px; }
+        .logo-text { font-weight: bold; font-size: 18px; }
+        .logo-sub { font-size: 12px; color: #666; }
+        .nav-menu { display: flex; gap: 32px; font-size: 14px; }
+        .nav-menu a { color: #333; text-decoration: none; }
+        .nav-menu a:hover { color: #2563eb; }
+
+        /* 首屏Banner */
+        .banner {
+            margin-top: 64px; padding: 80px 20px;
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: #fff; text-align: center;
+        }
+        .banner h1 { font-size: 42px; margin-bottom: 16px; }
+        .banner .sub-title { font-size: 22px; color: #e5e7eb; margin-bottom: 24px; }
+        .banner .desc { max-width: 800px; margin: 0 auto 40px; color: #d1d5db; }
+        .btn {
+            display: inline-block; padding: 12px 32px;
+            background: #2563eb; color: #fff;
+            text-decoration: none; border-radius: 8px;
+        }
+        .btn:hover { background: #1d4ed8; }
+
+        /* 通用区块 */
+        section { padding: 64px 20px; }
+        .section-box { max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 30px; text-align: center; margin-bottom: 12px; font-weight: bold; }
+        .section-desc { text-align: center; color: #666; margin-bottom: 48px; }
+        .bg-white { background: #fff; }
+
+        /* 关于我们 */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 40px; align-items: center;
+        }
+        .about-text p { color: #555; margin-bottom: 16px; }
+        .about-advantage {
+            display: grid; grid-template-columns: repeat(3,1fr);
+            gap: 16px; margin-top: 32px; text-align: center;
+        }
+        .adv-num { font-size: 24px; font-weight: bold; color: #2563eb; }
+        .adv-text { font-size: 13px; color: #666; }
+        .img-placeholder {
+            height: 256px; background: #f3f4f6; border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* 服务卡片 */
+        .service-grid {
+            display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+        }
+        .service-card {
+            background: #fff; padding: 24px; border-radius: 8px;
+            border: 1px solid #f3f4f6; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .service-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .service-card p { font-size: 14px; color: #555; margin-bottom: 16px; }
+        .service-card ul { font-size: 12px; color: #666; list-style: none; }
+        .service-card li { margin-bottom: 4px; }
+
+        /* 案例 */
+        .case-grid {
+            display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+        }
+        .case-card {
+            border: 1px solid #f3f4f6; border-radius: 8px; overflow: hidden;
+        }
+        .case-img {
+            height: 160px; background: #f3f4f6;
+            display: flex; align-items: center; justify-content: center; color: #9ca3af;
+        }
+        .case-text { padding: 16px; }
+        .case-text h4 { margin-bottom: 4px; }
+        .case-text p { font-size: 14px; color: #555; }
+
+        /* 联系我们 */
+        .contact-section { background: #1f2937; color: #fff; }
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        .contact-info h3 { font-size: 20px; margin-bottom: 24px; }
+        .contact-info p { margin-bottom: 16px; color: #d1d5db; }
+        .contact-info span { color: #fff; }
+        .contact-card {
+            background: #374151; padding: 24px; border-radius: 8px;
+        }
+        .contact-card h4 { margin-bottom: 16px; }
+        .contact-card p { font-size: 14px; color: #9ca3af; margin-bottom: 8px; }
+
+        /* 页脚 */
+        footer {
+            background: #111827; color: #9ca3af;
+            padding: 24px; text-align: center; font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .banner h1 { font-size: 32px; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr 1fr; }
+            .case-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav>
+        <div class="nav-box">
+            <div class="logo-box">
+                <img src="logo.png" alt="睚宁公司">
+                <div>
+                    <div class="logo-text">睚宁公司</div>
+                    <div class="logo-sub">YA NING 3D PRINT</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#home">首页</a>
+                <a href="#about">关于我们</a>
+                <a href="#service">打印服务</a>
+                <a href="#case">应用案例</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏Banner -->
+    <section class="banner" id="home">
+        <h1>睚宁3D打印</h1>
+        <p class="sub-title">专业三维打印 · 快速原型制作 · 来图定制生产</p>
+        <p class="desc">
+            专注工业级3D打印服务，覆盖手板打样、文创手办、工业零部件、建筑模型等多领域，
+            支持客户来图来档，提供高精度、高效率的3D打印定制服务。
+        </p>
+        <a href="#contact" class="btn">咨询报价</a>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="bg-white" id="about">
+        <div class="section-box">
+            <h2 class="section-title">关于睚宁公司</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        睚宁公司是一家专注于3D打印技术应用的创新型服务商，致力于为各行业客户提供专业、高效、高性价比的三维打印解决方案。
+                    </p>
+                    <p>
+                        我们配备多台工业级3D打印设备，拥有成熟的FDM打印工艺，可实现多种耗材打印，
+                        覆盖产品研发打样、小批量生产、个性化定制等全场景需求，支持客户来图来档定制打印。
+                    </p>
+                    <div class="about-advantage">
+                        <div>
+                            <div class="adv-num">多材质</div>
+                            <div class="adv-text">PLA/PETG/ABS/TPU</div>
+                        </div>
+                        <div>
+                            <div class="adv-num">高精度</div>
+                            <div class="adv-text">微米级打印精度</div>
+                        </div>
+                        <div>
+                            <div class="adv-num">快交付</div>
+                            <div class="adv-text">最快24小时出货</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 设备图片位置 - 已替换 -->
+                <div class="img-placeholder">
+                    <img src="shebei.jpg" alt="公司3D打印设备" 
+                         style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心3D打印服务 -->
+    <section id="service">
+        <div class="section-box">
+            <h2 class="section-title">核心3D打印服务</h2>
+            <p class="section-desc">全耗材品类适配，支持来图定制打印，暂不提供上色、打磨等后处理服务</p>
+
+            <div class="service-grid">
+                <!-- 耗材1 -->
+                <div class="service-card">
+                    <h3>PLA通用打印</h3>
+                    <p>最常用基础耗材，易成型、颜色丰富、成本低，表面效果佳。</p>
+                    <ul>
+                        <li>• 特点：打印顺畅、细节还原好、性价比高</li>
+                        <li>• 适用：文创手办、展示模型、原型验证</li>
+                        <li>• 场景：普通摆件、设计打样、快速成型</li>
+                    </ul>
+                </div>
+                <!-- 耗材2 -->
+                <div class="service-card">
+                    <h3>PETG耐候打印</h3>
+                    <p>韧性强、耐水防潮，兼顾强度与易打印性，日常功能性件首选。</p>
+                    <ul>
+                        <li>• 特点：耐低温、抗冲击、不易碎裂</li>
+                        <li>• 适用：户外用品、防水零件、耐用外壳</li>
+                        <li>• 场景：功能性摆件、日常用品外壳</li>
+                    </ul>
+                </div>
+                <!-- 耗材3 -->
+                <div class="service-card">
+                    <h3>ABS工程打印</h3>
+                    <p>高强度耐高温工程耗材，抗冲击性强，可后期打磨粘接。</p>
+                    <ul>
+                        <li>• 特点：机械强度高、耐温、耐化学性</li>
+                        <li>• 适用：工业夹具、结构零件、设备外壳</li>
+                        <li>• 场景：功能性受力部件、工业手板</li>
+                    </ul>
+                </div>
+                <!-- 耗材4 -->
+                <div class="service-card">
+                    <h3>TPU柔性打印</h3>
+                    <p>弹性软胶耗材，耐磨减震、可弯曲拉伸，打印精度稳定。</p>
+                    <ul>
+                        <li>• 特点：95A硬度、弹性好、抗磨损</li>
+                        <li>• 适用：密封件、缓冲垫、柔性连接件</li>
+                        <li>• 场景：减震部件、软胶模型、仿真配件</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用案例 -->
+    <section class="bg-white" id="case">
+        <div class="section-box">
+            <h2 class="section-title">应用领域</h2>
+            <p class="section-desc">覆盖多行业3D打印解决方案</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-img">工业手板</div>
+                    <div class="case-text">
+                        <h4>工业研发手板</h4>
+                        <p>产品快速原型验证，缩短研发周期，降低开模成本。</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">文创手办</div>
+                    <div class="case-text">
+                        <h4>文创潮玩手办</h4>
+                        <p>高精度细节还原，小批量定制生产，支持来图打印。</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-img">建筑模型</div>
+                    <div class="case-text">
+                        <h4>建筑沙盘模型</h4>
+                        <p>大尺寸分体打印，精细还原建筑结构，沙盘定制服务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact-section" id="contact">
+        <div class="section-box">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>睚宁公司</h3>
+                    <p>💬 微信咨询：<span>Mi20041</span></p>
+                    <p>📍 公司地址：<span>浙江省金华市义乌市</span></p>
+                    <p>⏰ 工作时间：周一至周六 9:00-18:00</p>
+                </div>
+                <div class="contact-card">
+                    <h4>在线询价</h4>
+                    <p>发送您的图纸、图片、需求、数量，我们将快速为您报价。</p>
+                    <p>直接添加微信发送图纸，沟通细节即可。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 睚宁公司 YA NING 版权所有 | 专业3D打印服务</p>
+    </footer>
+
+</body>
+</html>
