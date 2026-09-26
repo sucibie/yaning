@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: "微软雅黑", sans-serif; color: #333; background: #f9fafb; line-height: 1.6; }
         html { scroll-behavior: smooth; }
-
         /* 导航栏 */
         nav {
             position: fixed; top: 0; width: 100%;
@@ -27,7 +26,6 @@
         .nav-menu { display: flex; gap: 32px; font-size: 14px; }
         .nav-menu a { color: #333; text-decoration: none; }
         .nav-menu a:hover { color: #2563eb; }
-
         /* 首屏Banner */
         .banner {
             margin-top: 64px; padding: 80px 20px;
@@ -43,14 +41,12 @@
             text-decoration: none; border-radius: 8px;
         }
         .btn:hover { background: #1d4ed8; }
-
         /* 通用区块 */
         section { padding: 64px 20px; }
         .section-box { max-width: 1200px; margin: 0 auto; }
         .section-title { font-size: 30px; text-align: center; margin-bottom: 12px; font-weight: bold; }
         .section-desc { text-align: center; color: #666; margin-bottom: 48px; }
         .bg-white { background: #fff; }
-
         /* 关于我们 */
         .about-grid {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -67,7 +63,6 @@
             height: 256px; background: #f3f4f6; border-radius: 8px;
             overflow: hidden;
         }
-
         /* 服务卡片 */
         .service-grid {
             display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
@@ -82,7 +77,6 @@
         .service-card p { font-size: 14px; color: #555; margin-bottom: 16px; }
         .service-card ul { font-size: 12px; color: #666; list-style: none; }
         .service-card li { margin-bottom: 4px; }
-
         /* 案例 */
         .case-grid {
             display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
@@ -91,13 +85,19 @@
             border: 1px solid #f3f4f6; border-radius: 8px; overflow: hidden;
         }
         .case-img {
-            height: 160px; background: #f3f4f6;
-            display: flex; align-items: center; justify-content: center; color: #9ca3af;
+            aspect-ratio: 4/3; /* 固定4:3比例 */
+            overflow: hidden;
+            background: #f3f4f6;
+        }
+        .case-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 图片填满区域不变形 */
+            display: block;
         }
         .case-text { padding: 16px; }
         .case-text h4 { margin-bottom: 4px; }
         .case-text p { font-size: 14px; color: #555; }
-
         /* 联系我们 */
         .contact-section { background: #1f2937; color: #fff; }
         .contact-grid {
@@ -111,13 +111,11 @@
         }
         .contact-card h4 { margin-bottom: 16px; }
         .contact-card p { font-size: 14px; color: #9ca3af; margin-bottom: 8px; }
-
         /* 页脚 */
         footer {
             background: #111827; color: #9ca3af;
             padding: 24px; text-align: center; font-size: 13px;
         }
-
         /* 响应式 */
         @media (max-width: 900px) {
             .nav-menu { display: none; }
@@ -129,7 +127,6 @@
     </style>
 </head>
 <body>
-
     <!-- 顶部导航栏 -->
     <nav>
         <div class="nav-box">
@@ -149,7 +146,6 @@
             </div>
         </div>
     </nav>
-
     <!-- 首屏Banner -->
     <section class="banner" id="home">
         <h1>睚宁3D打印</h1>
@@ -160,7 +156,6 @@
         </p>
         <a href="#contact" class="btn">咨询报价</a>
     </section>
-
     <!-- 关于我们 -->
     <section class="bg-white" id="about">
         <div class="section-box">
@@ -181,7 +176,7 @@
                         </div>
                         <div>
                             <div class="adv-num">高精度</div>
-                            <div class="adv-text">微米级打印精度</div>
+                            <div class="adv-text">层高精细可控</div>
                         </div>
                         <div>
                             <div class="adv-num">快交付</div>
@@ -189,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- 设备图片位置 - 已替换 -->
+                <!-- 设备图片位置 -->
                 <div class="img-placeholder">
                     <img src="shebei.jpg" alt="公司3D打印设备" 
                          style="width:100%; height:100%; object-fit:cover;">
@@ -197,13 +192,11 @@
             </div>
         </div>
     </section>
-
     <!-- 核心3D打印服务 -->
     <section id="service">
         <div class="section-box">
             <h2 class="section-title">核心3D打印服务</h2>
             <p class="section-desc">全耗材品类适配，支持来图定制打印，暂不提供上色、打磨等后处理服务</p>
-
             <div class="service-grid">
                 <!-- 耗材1 -->
                 <div class="service-card">
@@ -248,39 +241,42 @@
             </div>
         </div>
     </section>
-
     <!-- 应用案例 -->
     <section class="bg-white" id="case">
         <div class="section-box">
             <h2 class="section-title">应用领域</h2>
             <p class="section-desc">覆盖多行业3D打印解决方案</p>
-
             <div class="case-grid">
                 <div class="case-card">
-                    <div class="case-img">工业手板</div>
+                    <div class="case-img">
+                        <img src="laitudingzhidayin.jpg" alt="来图定制打印">
+                    </div>
                     <div class="case-text">
-                        <h4>工业研发手板</h4>
-                        <p>产品快速原型验证，缩短研发周期，降低开模成本。</p>
+                        <h4>来图定制打印</h4>
+                        <p>支持按客户提供的图纸、模型和尺寸要求打印制作，适合个性化造型、小批量定制件。</p>
                     </div>
                 </div>
                 <div class="case-card">
-                    <div class="case-img">文创手办</div>
+                    <div class="case-img">
+                        <img src="wenchuangchaowanshouban.jpg" alt="文创潮玩手办">
+                    </div>
                     <div class="case-text">
                         <h4>文创潮玩手办</h4>
                         <p>高精度细节还原，小批量定制生产，支持来图打印。</p>
                     </div>
                 </div>
                 <div class="case-card">
-                    <div class="case-img">建筑模型</div>
+                    <div class="case-img">
+                        <img src="zhuomianshounazhijia.jpg" alt="桌面收纳支架">
+                    </div>
                     <div class="case-text">
-                        <h4>建筑沙盘模型</h4>
-                        <p>大尺寸分体打印，精细还原建筑结构，沙盘定制服务。</p>
+                        <h4>桌面收纳支架</h4>
+                        <p>手机支架、线材整理、收纳盒等定制，适配个性化桌面与小众使用需求。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- 联系我们 -->
     <section class="contact-section" id="contact">
         <div class="section-box">
@@ -300,11 +296,9 @@
             </div>
         </div>
     </section>
-
     <!-- 页脚 -->
     <footer>
         <p>© 2025 睚宁公司 YA NING 版权所有 | 专业3D打印服务</p>
     </footer>
-
 </body>
 </html>
